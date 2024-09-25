@@ -1,8 +1,14 @@
 package com.richis_l1.service;
 
-import com.richis_l1.entity.array.MyArray;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
-public class ArraySortService {
+import com.richis_l1.entity.array.MyArray;
+import com.richis_l1.other.ArrayFromFileCreator;
+
+public class MyArraySortService {
+
+	private static final Logger logger = LogManager.getLogger(MyArraySortService.class);
 	
 	public static MyArray bubbleSort(MyArray array, boolean ascendingOrder){
 		MyArray sortedArray = array.copyArray();

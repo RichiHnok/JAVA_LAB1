@@ -2,21 +2,24 @@ package com.richis_l1.entity.array;
 
 import java.util.Arrays;
 
-public class ArrayImpl extends MyArray{
+import org.apache.logging.log4j.*;
 
-	public ArrayImpl(){
+public class MyArrayImpl extends MyArray{
+
+	private static final Logger logger = LogManager.getLogger(MyArrayImpl.class);
+
+	public MyArrayImpl(){
 		array = new int[0];
 		this.size = 0;
 	}
 
-	public ArrayImpl(int arraySize){
+	public MyArrayImpl(int arraySize){
 		array = new int[arraySize];
 		this.size = arraySize;
 	}
 
 	@Override
 	public void add(int value) {
-		// TODO Auto-generated method stub
 		int[] newArray = new int[size + 1];
 		for(int i = 0; i < size; i++){
 			newArray[i] = array[i];
@@ -43,7 +46,7 @@ public class ArrayImpl extends MyArray{
 	}
 
 	public MyArray copyArray() {
-		MyArray newArray = new ArrayImpl(size);
+		MyArray newArray = new MyArrayImpl(size);
 		// int[] copyOfArray = new int[size];
 		for(int i = 0; i < size; i++){
 			newArray.set(i, array[i]);

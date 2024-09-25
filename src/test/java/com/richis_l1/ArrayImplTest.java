@@ -5,14 +5,14 @@ import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
 import com.richis_l1.entity.array.MyArray;
-import com.richis_l1.entity.array.ArrayImpl;
+import com.richis_l1.entity.array.MyArrayImpl;
 import com.richis_l1.exception.OutOfBoundException;
 
 public class ArrayImplTest {
 	
 	@Test(priority = 1, enabled = true)
 	public void getTest(){
-		MyArray array = new ArrayImpl(3);
+		MyArray array = new MyArrayImpl(3);
 		array.set(0, 2);
 		array.set(1, 4);
 		array.set(2, 8);
@@ -24,13 +24,13 @@ public class ArrayImplTest {
 
 	@Test(expectedExceptions = OutOfBoundException.class)
 	public void getOutOfBoundExceptionTest(){
-		MyArray array = new ArrayImpl(3);
+		MyArray array = new MyArrayImpl(3);
 		array.get(3);
 	}
 
 	@Test
 	public void addElementTest(){
-		MyArray array = new ArrayImpl();
+		MyArray array = new MyArrayImpl();
 		array.add(10);
 
 		SoftAssert softAssert = new SoftAssert();
@@ -41,13 +41,13 @@ public class ArrayImplTest {
 
 	@Test
 	public void sizeTest(){
-		MyArray array = new ArrayImpl(3);
+		MyArray array = new MyArrayImpl(3);
 		Assert.assertEquals(array.size(), 3);
 	}
 
 	@Test
 	public void copyArrayTest(){
-		MyArray array = new ArrayImpl();
+		MyArray array = new MyArrayImpl();
 		array.add(1);
 		array.add(2);
 		array.add(3);

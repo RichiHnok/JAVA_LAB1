@@ -1,10 +1,20 @@
 package com.richis_l1.service;
 
-import com.richis_l1.entity.array.MyArray;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
-public class ArrayService {
+import com.richis_l1.entity.array.MyArray;
+import com.richis_l1.other.ArrayFromFileCreator;
+
+public class MyArrayServices {
+
+	private static final Logger logger = LogManager.getLogger(MyArrayServices.class);
 	
 	public static int getMinValue(MyArray array){
+		if(array.size() == 0){
+			
+		}
+
 		int min = 0;
 		for(int i = 0, n = array.size(); i < n; i++){
 			if(array.get(i) < min) min = array.get(i);
