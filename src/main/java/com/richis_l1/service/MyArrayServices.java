@@ -4,7 +4,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import com.richis_l1.entity.array.MyArray;
-import com.richis_l1.other.ArrayFromFileCreator;
+import com.richis_l1.entity.array.MyArrayImpl;
 
 public class MyArrayServices {
 
@@ -55,5 +55,39 @@ public class MyArrayServices {
 		for(int i = 0, n = array.size(); i < n; i++){
 			if(array.get(i) < 0) negativeCounter++;
 		}
-		return negativeCounter;	}
+		return negativeCounter;
+	}
+
+	public static MyArray replaceElementByCondition(MyArray array, String condition, int value){
+		MyArray newArray = new MyArrayImpl();
+		switch (condition) {
+			case ">":
+				for(int i = 0, n = array.size(); i < n; i++)
+					if(array.get(i) > value) newArray.add(array.get(i));					
+				break;
+			case "<":
+				for(int i = 0, n = array.size(); i < n; i++)
+				if(array.get(i) < value) newArray.add(array.get(i));		
+				break;
+			case "==":
+				for(int i = 0, n = array.size(); i < n; i++)
+				if(array.get(i) == value) newArray.add(array.get(i));		
+				break;
+			case ">=":
+				for(int i = 0, n = array.size(); i < n; i++)
+				if(array.get(i) >= value) newArray.add(array.get(i));		
+				break;
+			case "<=":
+				for(int i = 0, n = array.size(); i < n; i++)
+				if(array.get(i) <= value) newArray.add(array.get(i));		
+				break;			
+			case "!=":
+				for(int i = 0, n = array.size(); i < n; i++)
+				if(array.get(i) != value) newArray.add(array.get(i));		
+				break;			
+			default:
+				break;
+		}
+		return newArray;
+	}
 }

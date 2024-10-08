@@ -1,14 +1,26 @@
 package com.richis_l1.service;
 
+import java.util.Collections;
+import java.util.List;
+import java.util.stream.Collectors;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import com.richis_l1.entity.array.MyArray;
-import com.richis_l1.other.ArrayFromFileCreator;
+import com.richis_l1.entity.array.MyArrayImpl;
 
 public class MyArraySortService {
 
 	private static final Logger logger = LogManager.getLogger(MyArraySortService.class);
+
+	public static MyArray sortUsingStream(MyArray array, boolean ascendingOrder){
+		if (ascendingOrder) {
+			return new MyArrayImpl(array.stream().sorted().toArray());
+		}else{
+			return new MyArrayImpl(array.stream().boxed().sorted(Collections.reverseOrder()).mapToInt(value -> value.intValue()).toArray());
+		}
+	}
 	
 	public static MyArray bubbleSort(MyArray array, boolean ascendingOrder){
 		MyArray sortedArray = array.copyArray();

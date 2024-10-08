@@ -2,3 +2,4 @@
 /.vscode
 /target
 src/main/java/com/richis_l1/Test1.java
+/src/main/resources/logs

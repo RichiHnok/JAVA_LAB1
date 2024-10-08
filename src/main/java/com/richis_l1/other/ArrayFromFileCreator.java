@@ -43,7 +43,7 @@ public class ArrayFromFileCreator implements Closeable{
 		if(fileReader.ready()){
 			String inputLine = fileReader.readLine();
 			if(ArrayInputValidator.isLineOK(inputLine)){
-				logger.info("Input is OK. MyArray has created"); //&
+				logger.info("Input is OK. Creating MyArray with line {" + inputLine + "}"); //&
 
 				MyArray newArray = new MyArrayImpl();
 				for(String part : inputLine.split(VALUES_DELIMETER)){
@@ -51,10 +51,11 @@ public class ArrayFromFileCreator implements Closeable{
 				}
 				return newArray;
 			}else{
-				logger.error("Bad input. MyArray is not created"); //&
+				logger.error("Bad input. MyArray cannot be created with line {" + inputLine + "}"); //&
 				throw new BadInputLineException("Input line \"" + inputLine + "\" doesn't match given pattern.");
 			}
 		}else{
+			//TODO Throw exception
 			return null;
 		}
 	}

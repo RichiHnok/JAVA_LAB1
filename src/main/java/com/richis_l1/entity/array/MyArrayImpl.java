@@ -1,6 +1,7 @@
 package com.richis_l1.entity.array;
 
 import java.util.Arrays;
+import java.util.stream.IntStream;
 
 import org.apache.logging.log4j.*;
 
@@ -16,6 +17,11 @@ public class MyArrayImpl extends MyArray{
 	public MyArrayImpl(int arraySize){
 		array = new int[arraySize];
 		this.size = arraySize;
+	}
+
+	public MyArrayImpl(int[] array){
+		this.array = Arrays.copyOf(array, array.length);
+		this.size = array.length;
 	}
 
 	@Override
@@ -76,6 +82,11 @@ public class MyArrayImpl extends MyArray{
 	@Override
 	public String toString() {
 		return "ArrayImpl { "+ "size = " + size + ", " + Arrays.toString(array) + "}";
+	}
+
+	@Override
+	public IntStream stream() {
+		return Arrays.stream(array);
 	}
 	
 	

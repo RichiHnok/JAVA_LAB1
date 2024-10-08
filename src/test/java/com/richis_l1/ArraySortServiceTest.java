@@ -39,6 +39,16 @@ public class ArraySortServiceTest {
 	}
 
 	@Test
+	public void ascendingSortUsingStreamTest(){
+		Assert.assertEquals(MyArraySortService.sortUsingStream(unsortedArray, true), acsSortedArray);
+	}
+	
+	@Test
+	public void descendingSortUsingStreamTest(){
+		Assert.assertEquals(MyArraySortService.sortUsingStream(unsortedArray, false), descSortedArray);
+	}
+
+	@Test
 	public void ascendingBubbleSortTest(){
 		Assert.assertEquals(MyArraySortService.bubbleSort(unsortedArray, true), acsSortedArray);
 	}

@@ -1,5 +1,7 @@
 package com.richis_l1.entity.array;
 
+import java.util.stream.IntStream;
+
 import com.richis_l1.exception.OutOfBoundException;
 
 public abstract class MyArray {
@@ -24,4 +26,6 @@ public abstract class MyArray {
 	public abstract MyArray copyArray();
 
 	public abstract int size();
+
+	public abstract IntStream stream();
 }

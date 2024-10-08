@@ -12,7 +12,7 @@ import org.apache.logging.log4j.Logger;
 public class ProgramStart {
 
     private static final Logger logger = LogManager.getLogger(ProgramStart.class);
-    public static void main( String[] args ){
+    public static void main(String[] args){
         logger.info("Program has started"); //&
 
         try (ArrayFromFileCreator arrayCreator = new ArrayFromFileCreator("input1.txt")) {
